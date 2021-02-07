@@ -20,7 +20,7 @@ traefik.http.routers.proxy.rule=Host(`fonts.xxx.com`)||Host(`fonts-static.xxx.co
 ...
 server_name fonts.xxx.com; // xxx.com替换为你的域名
 ...
-valid_referers  none  blocked  server_names  *.xxx.com;  // allow refer, 替换 "*.xxx.com" 为你的域名
+valid_referers  none  blocked  server_names  *.xxx.com;  // allow refer, 替换 "*.xxx.com" 为你的域名，本操作只允许 *.xxx.com 访问你的代理
 ...
 
 sub_filter 'fonts.gstatic.com' 'fonts-static.xxx.com'; // 替换 xxx.com 为你的域名
@@ -32,4 +32,11 @@ server_name fonts-static.xxx.com; // 替换 xxx.com 为你的域名
 ### 启动
 ```
 docker-compose build && docker-compose up -d
+```
+
+
+### 使用
+```
+比如把谷歌字体连接https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap  
+替换为https://fonts.xxx.com/css2?family=Lato:wght@300;400;700&display=swap (xxx.com为你的域名)
 ```
