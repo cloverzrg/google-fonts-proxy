@@ -8,7 +8,8 @@ WORKDIR /var/nginx/nginx-${NGINX_VERSION}
 RUN ./configure --prefix=/app --with-http_sub_module --with-http_ssl_module
 RUN make --silent && make --silent install
 
-RUN rm -rf /var/nginx
+RUN apk del git build-base pcre-dev zlib-dev --quiet
+RUN rm -rf /var/nginx && rm -rf /var/cache/apk/*
 ADD nginx.conf /app/nginx.conf
 WORKDIR /app
 ENV DOMAIN jeongen.com

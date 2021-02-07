@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   google-fonts-proxy:
-    build: .
+    image: cloverzrg/google-fonts-proxy
     container_name: google-fonts-proxy
     environment:
       TZ: Asia/Shanghai
