@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  google-fonts-proxy:
+    build: .
+    container_name: google-fonts-proxy
+    environment:
+      TZ: Asia/Shanghai
+    restart: always
+    networks:
+      - traefik-net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.proxy.rule=Host(`fonts.jeongen.com`)||Host(`fonts-static.jeongen.com`)"
+      - "traefik.http.services.proxy.loadbalancer.server.port=80"
+
+networks:
+  traefik-net:
+    external:
+      name: traefik-net
