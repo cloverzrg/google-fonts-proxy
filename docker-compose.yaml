@@ -6,6 +6,7 @@ services:
     container_name: google-fonts-proxy
     environment:
       TZ: Asia/Shanghai
+      DOMAIN: jeongen.com
     restart: always
     networks:
       - traefik-net
