@@ -35,8 +35,7 @@ docker-compose build && docker-compose up -d
 ```
 
 
-### 使用
-```
-比如把谷歌字体连接https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap  
-替换为https://fonts.xxx.com/css2?family=Lato:wght@300;400;700&display=swap (xxx.com为你的域名)
-```
+### 使用  
+把谷歌字体链接`https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap` 中的 `googleapis.com` 替换为你的域名  
+请保证 `fonts.xxx.com` 和 `fonts-static.xxx.com` 的域名解析正确
+
