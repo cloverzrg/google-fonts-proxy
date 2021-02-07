@@ -1,14 +1,14 @@
-from alpine as builder
+FROM alpine
 ENV NGINX_VERSION 1.19.6
-run apk update && apk add --no-cache pcre-dev git build-base zlib-dev libressl-dev
-workdir /var/nginx
-run wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
-run tar -zxf nginx-${NGINX_VERSION}.tar.gz
-workdir /var/nginx/nginx-${NGINX_VERSION}
-run ./configure --prefix=/app --with-http_sub_module --with-http_ssl_module
-run make --silent && make --silent install
+RUN apk update && apk add --no-cache pcre-dev git build-base zlib-dev libressl-dev
+WORKDIR /var/nginx
+RUN wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+RUN tar -zxf nginx-${NGINX_VERSION}.tar.gz
+WORKDIR /var/nginx/nginx-${NGINX_VERSION}
+RUN ./configure --prefix=/app --with-http_sub_module --with-http_ssl_module
+RUN make --silent && make --silent install
 
 RUN rm -rf /var/nginx
 ADD nginx.conf /app/conf/nginx.conf
-workdir /app
+WORKDIR /app
 CMD ["/app/sbin/nginx", "-g", "daemon off;"]
