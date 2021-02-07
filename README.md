@@ -5,7 +5,7 @@
 
 ### 克隆项目
 ```
-git clone 
+git clone https://github.com/cloverzrg/google-fonts-proxy.git
 ```
 
 ### 编辑 docker-compose.yaml
