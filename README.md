@@ -14,4 +14,4 @@ docker run --rm -e DOMAIN=xxx.com -p 80:80 cloverzrg/google-fonts-proxy
 
 ### 使用  
 把谷歌字体链接`https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap` 中的 `googleapis.com` 替换为你的域名(xxx.com)，如果没有https，还要把https改为http。  
-在 nginx 中配置了防盗链，只允许 `*.xxx.com` 访问。
+在 nginx 中配置了防盗链，只允许 `*.xxx.com` 和 `xxx.com` 访问。
